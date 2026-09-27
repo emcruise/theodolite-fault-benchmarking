@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: probe-cloud
+  namespace: two-zone-edge-cloud
+  labels:
+    app: probe
+    ecoscape: "true"
+spec:
+  terminationGracePeriodSeconds: 0
+  containers:
+    - name: sleep
+      image: busybox:1.36
+      command: ["sh","-c","sleep 7200"]
+      resources:
+        requests: { cpu: 10m, memory: 16Mi }
+        limits:   { cpu: 50m, memory: 32Mi }

@@ -1,0 +1,15 @@
+{
+  "passed_basic_checks": false,
+  "problems": [
+    "ChaosMeasurement: SUT not ready",
+    "ChaosMeasurement: load generator not running",
+    "Fault not fully injected during settled chaos window",
+    "Fewer than three settled samples in a measurement phase"
+  ],
+  "settled_samples": {
+    "PreChaosMeasurement": 18,
+    "ChaosMeasurement": 2
+  },
+  "fault_injected": true,
+  "note": "Injection status does not establish physical fault magnitude. No end-to-end latency is measured."
+}

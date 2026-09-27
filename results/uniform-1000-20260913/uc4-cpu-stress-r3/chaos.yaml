@@ -1,0 +1,21 @@
+# =============================================================================
+# ChaosPhase uc4-cpu-stress-4w.
+# Stufe identisch zu uc1-cpu-stress-4w: 4 Worker, 100 % Last, NUR zone munich.
+# 'cloud' wuerde den Lastgenerator mitdrosseln und das Lastniveau veraendern.
+# Ecoscape erzeugt das StressChaos selbst -> Objektname nicht vorhersagbar,
+# CHAOS_NAME bleibt leer und resolve_chaos_obj() findet es zur Laufzeit.
+# =============================================================================
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: measure-uc4-cpu-stress-7fdc4c34-fault
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: CPUStress
+      zones:
+        - munich
+      workers: 4
+      load: 100

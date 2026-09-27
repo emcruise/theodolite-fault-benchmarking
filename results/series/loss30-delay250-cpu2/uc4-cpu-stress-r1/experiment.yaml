@@ -1,0 +1,29 @@
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: Experiment
+metadata:
+  name: measure-uc4-cpu-stress-1f609357
+  namespace: default
+spec:
+  topologyRef: {name: two-zone-edge}
+  chaosPhaseRef: {name: measure-uc4-cpu-stress-1f609357-fault}
+  manifests:
+    sut: {configMapRef: {name: measure-uc4-cpu-stress-1f609357-sut}}
+    load: {configMapRef: {name: measure-uc4-cpu-stress-1f609357-load}}
+    monitor: {configMapRef: {name: measure-uc4-cpu-stress-1f609357-monitor}}
+  duration:
+    topologyDelay: 15
+    loadDelay: 60
+    chaosDelay: 150
+    measurementDuration: 120
+    measurementSampleInterval: 5
+    repetitions: 1
+    pauseBetweenRepetitions: 90
+  prometheus:
+    url: "http://kube1-1:30093"
+    queryTimeoutSeconds: 10
+  slos:
+    - name: input-consumerlag
+      query: 'sum(clamp_min(kafka_consumergroup_lag{consumergroup="theodolite-uc4-application-0.0.1",topic="input",job="monitoring/kafka-pod-monitor-series"},0))'
+      threshold: 50000
+      isBiggerBetter: false
+      weight: 1.0

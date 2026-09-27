@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: titan-ccp-load-generator
+  namespace: two-zone-edge-cloud
+spec:
+  selector:
+    matchLabels:
+      app: titan-ccp-load-generator    # kein ecoscape-Label: selector ist immutable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: titan-ccp-load-generator
+        ecoscape: "true"               # ABWEICHUNG 1
+    spec:
+      terminationGracePeriodSeconds: 0
+      containers:
+        - name: workload-generator
+          image: ghcr.io/cau-se/theodolite-uc4-workload-generator:v0.10.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5701
+              name: coordination
+          env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: KUBERNETES_DNS_NAME
+              value: "titan-ccp-load-generator.$(KUBERNETES_NAMESPACE).svc.cluster.local"
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: "kafka-cluster-kafka-bootstrap.kafka.svc:9092"
+            - name: SCHEMA_REGISTRY_URL
+              value: "http://nice-kafka-schema-registry.kafka.svc:8081"
+            - name: NUM_SENSORS
+              value: "10"
+            - name: NUM_NESTED_GROUPS
+              value: "4"
+            - name: PERIOD_MS
+              value: "10000"
+            - name: SLEEP_PERIOD_MS
+              value: "5000"
+          resources:
+            requests: { cpu: 250m, memory: 512Mi }
+            limits:   { cpu: 1000m, memory: 1Gi }

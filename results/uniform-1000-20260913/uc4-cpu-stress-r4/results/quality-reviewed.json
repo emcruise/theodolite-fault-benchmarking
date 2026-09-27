@@ -1,0 +1,33 @@
+{
+  "passed_basic_checks": true,
+  "problems": [],
+  "settled_samples": {
+    "PreChaosMeasurement": 3,
+    "ChaosMeasurement": 3
+  },
+  "fault_injected": true,
+  "note": "Injection status does not establish physical fault magnitude. No end-to-end latency is measured.",
+  "policy": "lag-coverage-v2-phase-check-v4-export-count",
+  "sample_source": "samples-prometheus.csv",
+  "warnings": [
+    "PreChaosMeasurement: health observation at +133.9s overlaps phase end; not used for readiness/injection verdict",
+    "ChaosMeasurement: health observation at +114.6s overlaps phase end; not used for readiness/injection verdict"
+  ],
+  "coverage": {
+    "PreChaosMeasurement": {
+      "expected_bins": 18,
+      "valid_bins": 18,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    },
+    "ChaosMeasurement": {
+      "expected_bins": 12,
+      "valid_bins": 12,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    }
+  },
+  "policy_details": "Per phase after 60s: >=90% five-second bins valid, at most one consecutive missing bin, no gap >15s. No interpolation. Health and injection checks unchanged. With a Prometheus export, local polling counts are diagnostic only."
+}

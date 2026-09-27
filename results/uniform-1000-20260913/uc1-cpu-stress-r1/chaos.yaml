@@ -1,0 +1,32 @@
+# =============================================================================
+# ChaosPhase des CPU-Stress-Szenarios.
+#
+# Hier KEIN 'type: Custom': 'CPUStress' steht im Enum von ChaosPhase.spec.faults[].type
+# und nimmt 'zones' direkt, zusammen mit 'workers' und 'load'. Ecoscape erzeugt
+# daraus selbst ein StressChaos — dessen Name ist deshalb nicht vorhersagbar und
+# wird von der Verifikation zur Laufzeit ermittelt (CHAOS_NAME leer in der .env).
+# Der Probelauf bestaetigt beides; precheck-rerun.sh prueft das Manifest vorher
+# per 'kubectl apply --dry-run=server' gegen das CRD-Schema.
+#
+# NUR zone munich: 'cloud' wuerde den Lastgenerator mitdrosseln und das
+# Lastniveau von 10 000 msg/s veraendern, das ueber alle Szenarien gleich sein muss.
+#
+# 1 Worker bei 80 % Last: das SUT hat 1000m Limit, ein Worker nimmt ihm damit
+# grob die Haelfte seiner CPU. 2 Worker x 100 % wuerden Kafka Streams
+# voraussichtlich sofort abhaengen — dann waere die Steigung keine belastbare
+# Kennzahl mehr, sondern nur noch die Saettigung. Nach dem Probelauf anpassen.
+# =============================================================================
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: measure-uc1-cpu-stress-fd832b52-fault
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: CPUStress
+      zones:
+        - munich
+      workers: 4
+      load: 100

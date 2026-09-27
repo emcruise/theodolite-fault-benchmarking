@@ -1,0 +1,15 @@
+{
+  "passed_basic_checks": false,
+  "problems": [
+    "PreChaosMeasurement: missing input_lag",
+    "PreChaosMeasurement: missing negative_partitions",
+    "PreChaosMeasurement: missing source_age_seconds",
+    "PreChaosMeasurement: missing/stale Kafka scrape"
+  ],
+  "settled_samples": {
+    "PreChaosMeasurement": 18,
+    "ChaosMeasurement": 12
+  },
+  "fault_injected": true,
+  "note": "Injection status does not establish physical fault magnitude. No end-to-end latency is measured."
+}

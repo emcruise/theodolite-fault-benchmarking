@@ -1,0 +1,89 @@
+{
+  "apiVersion": "ecoscape.cau-se.de/v1alpha1",
+  "kind": "Experiment",
+  "metadata": {
+    "creationTimestamp": "2026-09-13T16:32:02Z",
+    "generation": 1,
+    "name": "measure-uc2-network-delay-2369b3b3",
+    "namespace": "default",
+    "resourceVersion": "45204019",
+    "uid": "8636c6ad-1111-4ab2-b631-53b486f154b8"
+  },
+  "spec": {
+    "chaosPhaseRef": {
+      "name": "measure-uc2-network-delay-2369b3b3-fault"
+    },
+    "duration": {
+      "chaosDelay": 150,
+      "loadDelay": 60,
+      "measurementDuration": 120,
+      "measurementSampleInterval": 5,
+      "pauseBetweenRepetitions": 90,
+      "repetitions": 1,
+      "topologyDelay": 15
+    },
+    "manifests": {
+      "load": {
+        "configMapRef": {
+          "name": "measure-uc2-network-delay-2369b3b3-load"
+        }
+      },
+      "monitor": {
+        "configMapRef": {
+          "name": "measure-uc2-network-delay-2369b3b3-monitor"
+        }
+      },
+      "sut": {
+        "configMapRef": {
+          "name": "measure-uc2-network-delay-2369b3b3-sut"
+        }
+      }
+    },
+    "prometheus": {
+      "queryTimeoutSeconds": 10,
+      "url": "http://kube1-1:30093"
+    },
+    "slos": [
+      {
+        "isBiggerBetter": false,
+        "name": "input-consumerlag",
+        "query": "sum(clamp_min(kafka_consumergroup_lag{consumergroup=\"theodolite-uc2-application-0.0.1\",topic=\"input\",job=\"monitoring/kafka-pod-monitor-series\"},0))",
+        "threshold": 50000,
+        "thresholdDirection": "LessThanOrEqual",
+        "weight": 1
+      }
+    ],
+    "topologyRef": {
+      "name": "two-zone-edge"
+    }
+  },
+  "status": {
+    "aggregateScore": 0,
+    "conditions": [
+      {
+        "lastTransitionTime": "2026-09-13T16:37:50Z",
+        "message": "",
+        "reason": "Succeeded",
+        "status": "True",
+        "type": "Completed"
+      }
+    ],
+    "experimentId": "bzsti",
+    "phase": "Succeeded",
+    "repetitionsCompleted": 1,
+    "sloResults": [
+      {
+        "evaluations": 3228,
+        "maxSli": 75905,
+        "meanSli": 40789.223048327134,
+        "minSli": 5055,
+        "name": "input-consumerlag",
+        "violationScore": 0,
+        "violations": 1489
+      }
+    ],
+    "startTime": "2026-09-13T16:32:02Z",
+    "subPhaseStartTime": "2026-09-13T16:37:50Z",
+    "topologyRef": "two-zone-edge"
+  }
+}

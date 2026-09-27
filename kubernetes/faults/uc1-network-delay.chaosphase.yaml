@@ -1,0 +1,36 @@
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: esp-uc1-network-delay
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: Custom
+      manifest: |
+        apiVersion: chaos-mesh.org/v1alpha1
+        kind: NetworkChaos
+        metadata:
+          name: fault-uc1-network-delay
+          namespace: default          # muss explizit stehen, Ecoscape injiziert nichts
+        spec:
+          action: delay
+          mode: all
+          selector:
+            namespaces:
+              - two-zone-edge-munich
+            labelSelectors:
+              ecoscape: "true"
+          direction: both
+          target:
+            mode: all
+            selector:
+              namespaces:
+                - kafka
+              labelSelectors:
+                strimzi.io/name: kafka-cluster-kafka
+          delay:
+            latency: "500ms"
+            jitter: "100ms"
+            correlation: "100"

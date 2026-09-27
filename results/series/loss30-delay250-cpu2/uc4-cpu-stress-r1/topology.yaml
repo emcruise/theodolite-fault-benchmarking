@@ -1,0 +1,43 @@
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: Topology
+metadata:
+  name: two-zone-edge
+  namespace: default
+spec:
+  zones:
+    - name: cloud
+      cpu:
+        limit: "4000m"
+      memory:
+        limit: "8Gi"
+      disk:
+        capacity: "100Gi"
+
+    - name: berlin
+      cpu:
+        limit: "2000m"
+      memory:
+        limit: "2Gi"
+      disk:
+        capacity: "20Gi"
+
+    - name: munich
+      cpu:
+        limit: "2000m"
+      memory:
+        limit: "2Gi"
+      disk:
+        capacity: "8Gi"
+
+  links:
+    - zones: [cloud, berlin]
+      latency: "30ms"
+      jitter: "3ms"
+
+    - zones: [cloud, munich]
+      latency: "50ms"
+      jitter: "5ms"
+
+    - zones: [berlin, munich]
+      latency: "15ms"
+      jitter: "2ms"

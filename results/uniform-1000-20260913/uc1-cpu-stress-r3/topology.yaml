@@ -1,0 +1,59 @@
+# =============================================================================
+# Topology 'two-zone-edge' — die Original-Topology der Ecoscape-Demo, UNVERÄNDERT
+# übernommen (Quelle: ../ecoscape/topology.yaml). Drei Zonen, drei Links.
+# Ecoscape legt je Zone einen Namespace <topology>-<zone> mit ResourceQuota
+# 'ecoscape-edge-quota' an (limits.cpu / limits.memory / limits.ephemeral-storage,
+# KEINE LimitRange -> jeder Pod braucht explizite Limits).
+# 'berlin' bleibt leer — gehört zum Original und kostet nichts.
+# Die Links werden nur während eines Laufs (spec.active=true) als NetworkChaos
+# 'top-two-zone-edge-*' materialisiert; außerhalb eines Laufs misst man ~0,15 ms.
+# =============================================================================
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: Topology
+metadata:
+  name: two-zone-edge
+  namespace: default
+spec:
+  zones:
+    # Cloud-Zone: großzügige Ressourcen, fungiert als "Rechenzentrum"
+    - name: cloud
+      cpu:
+        limit: "4000m"
+      memory:
+        limit: "8Gi"
+      disk:
+        capacity: "100Gi"
+
+    # Berlin: industrieller Edge-Node (z.B. Raspberry Pi 5 oder Intel NUC)
+    - name: berlin
+      cpu:
+        limit: "2000m"
+      memory:
+        limit: "2Gi"
+      disk:
+        capacity: "20Gi"
+
+    # Munich: stark eingeschränktes IoT-Gerät (z.B. Raspberry Pi 3, ESP32-Klasse)
+    - name: munich
+      cpu:
+        limit: "2000m"
+      memory:
+        limit: "2Gi"
+      disk:
+        capacity: "8Gi"
+
+  links:
+    # Cloud ↔ Berlin: gute Anbindung, leichte Latenz
+    - zones: [cloud, berlin]
+      latency: "30ms"
+      jitter: "3ms"
+
+    # Cloud ↔ Munich: schlechte Mobilfunkanbindung (LTE unter Last)
+    - zones: [cloud, munich]
+      latency: "50ms"
+      jitter: "5ms"
+
+    # Berlin ↔ Munich: direkte Verbindung im lokalen Edge-Netz
+    - zones: [berlin, munich]
+      latency: "15ms"
+      jitter: "2ms"

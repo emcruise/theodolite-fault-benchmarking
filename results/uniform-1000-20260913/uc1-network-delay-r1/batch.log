@@ -1,0 +1,85 @@
+Waiting for Kafka scrape readiness (up to 60s)...
+Kafka scrape ready (two successful checks).
+Running measure-uc1-network-delay-53386511; results: /Users/emil/Workspace/ecoscape-files/simple-measurements/uniform-1000-20260913/uc1-network-delay-r1/results
+Cancellation/timeout leaves the experiment running. Stop with: kubectl -n default delete experiment measure-uc1-network-delay-53386511
+Running Deploying
+Running TopologyDelay
+Running LoadDelay
+Running PreChaosMeasurement
+Running ChaosMeasurement
+Succeeded 
+Exported 54 scheduled evaluations to /Users/emil/Workspace/ecoscape-files/simple-measurements/uniform-1000-20260913/uc1-network-delay-r1/results/samples-prometheus.csv
+{
+  "passed_basic_checks": true,
+  "problems": [],
+  "settled_samples": {
+    "PreChaosMeasurement": 18,
+    "ChaosMeasurement": 12
+  },
+  "fault_injected": true,
+  "note": "Injection status does not establish physical fault magnitude. No end-to-end latency is measured.",
+  "policy": "lag-coverage-v2-phase-check-v4-export-count",
+  "sample_source": "samples-prometheus.csv",
+  "warnings": [],
+  "coverage": {
+    "PreChaosMeasurement": {
+      "expected_bins": 18,
+      "valid_bins": 18,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    },
+    "ChaosMeasurement": {
+      "expected_bins": 12,
+      "valid_bins": 12,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    }
+  },
+  "policy_details": "Per phase after 60s: >=90% five-second bins valid, at most one consecutive missing bin, no gap >15s. No interpolation. Health and injection checks unchanged. With a Prometheus export, local polling counts are diagnostic only."
+}
+{
+  "passed_basic_checks": true,
+  "problems": [],
+  "settled_samples": {
+    "PreChaosMeasurement": 18,
+    "ChaosMeasurement": 12
+  },
+  "fault_injected": true,
+  "note": "Injection status does not establish physical fault magnitude. No end-to-end latency is measured.",
+  "policy": "lag-coverage-v2-phase-check-v4-export-count",
+  "sample_source": "samples-prometheus.csv",
+  "warnings": [],
+  "coverage": {
+    "PreChaosMeasurement": {
+      "expected_bins": 18,
+      "valid_bins": 18,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    },
+    "ChaosMeasurement": {
+      "expected_bins": 12,
+      "valid_bins": 12,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    }
+  },
+  "policy_details": "Per phase after 60s: >=90% five-second bins valid, at most one consecutive missing bin, no gap >15s. No interpolation. Health and injection checks unchanged. With a Prometheus export, local polling counts are diagnostic only."
+}
+After reviewing results, teardown: kubectl -n default delete experiment measure-uc1-network-delay-53386511
+Cleanup: measure-uc1-network-delay-53386511, its manifest ConfigMaps/ChaosPhase, and UC1 internal topics/consumer group
+Also remove orphan input/output/configuration/feedback topics declared in this run, after ownership and consumer checks.
+Waiting for inactive consumer group theodolite-uc1-application-0.0.1: GROUP                            COORDINATOR (ID)                                                          ASSIGNMENT-STRATEGY  STATE                #MEMBERS
+theodolite-uc1-application-0.0.1 kafka-cluster-dual-role-1.kafka-cluster-kafka-brokers.kafka.svc:9092  (1) stream               Stable               1
+Waiting for inactive consumer group theodolite-uc1-application-0.0.1: GROUP                            COORDINATOR (ID)                                                          ASSIGNMENT-STRATEGY  STATE                #MEMBERS
+theodolite-uc1-application-0.0.1 kafka-cluster-dual-role-1.kafka-cluster-kafka-brokers.kafka.svc:9092  (1) stream               Stable               1
+Waiting for inactive consumer group theodolite-uc1-application-0.0.1: GROUP                            COORDINATOR (ID)                                                          ASSIGNMENT-STRATEGY  STATE                #MEMBERS
+theodolite-uc1-application-0.0.1 kafka-cluster-dual-role-1.kafka-cluster-kafka-brokers.kafka.svc:9092  (1) stream               Stable               1
+Waiting for inactive consumer group theodolite-uc1-application-0.0.1: GROUP                            COORDINATOR (ID)                                                          ASSIGNMENT-STRATEGY  STATE                #MEMBERS
+theodolite-uc1-application-0.0.1 kafka-cluster-dual-role-1.kafka-cluster-kafka-brokers.kafka.svc:9092  (1) stream               Stable               1
+Deleting inactive consumer group theodolite-uc1-application-0.0.1
+Deleting orphan from recorded run: input
+Cleanup verified: consumer group absent in three consecutive checks.

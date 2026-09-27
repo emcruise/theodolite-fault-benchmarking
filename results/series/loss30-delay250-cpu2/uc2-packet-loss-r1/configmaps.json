@@ -1,0 +1,43 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "ConfigMap",
+      "metadata": {
+        "name": "measure-uc2-packet-loss-7984c212-sut",
+        "namespace": "default"
+      },
+      "data": {
+        "input-topic.yaml": "apiVersion: kafka.strimzi.io/v1beta2\nkind: KafkaTopic\nmetadata:\n  name: input\n  namespace: kafka\n  labels:\n    strimzi.io/cluster: kafka-cluster\nspec:\n  partitions: 20\n  replicas: 3\n",
+        "output-topic.yaml": "apiVersion: kafka.strimzi.io/v1beta2\nkind: KafkaTopic\nmetadata:\n  name: output\n  namespace: kafka\n  labels:\n    strimzi.io/cluster: kafka-cluster\nspec:\n  partitions: 20\n  replicas: 3\n",
+        "probe-munich.yaml": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: probe-munich\n  namespace: two-zone-edge-munich\n  labels:\n    app: probe\n    ecoscape: \"true\"\nspec:\n  terminationGracePeriodSeconds: 0\n  containers:\n    - name: sleep\n      image: busybox:1.36\n      command: [\"sh\",\"-c\",\"sleep 7200\"]\n      resources:\n        requests: { cpu: 10m, memory: 16Mi }\n        limits:   { cpu: 50m, memory: 32Mi }     # passt in die Quota (2000m/2Gi)\n",
+        "uc2-kstreams-deployment.yaml": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: titan-ccp-aggregation\n  namespace: two-zone-edge-munich      # ABWEICHUNG 1\nspec:\n  selector:\n    matchLabels:\n      app: titan-ccp-aggregation       # KEIN ecoscape-Label hier: selector ist immutable\n  replicas: 1\n  template:\n    metadata:\n      labels:\n        app: titan-ccp-aggregation\n        ecoscape: \"true\"               # ABWEICHUNG 1: Zonenzugehoerigkeit (Latenz + Chaos)\n    spec:\n      terminationGracePeriodSeconds: 0\n      containers:\n        - name: uc-application\n          image: ghcr.io/cau-se/theodolite-uc2-kstreams-app:v0.10.3\n          imagePullPolicy: IfNotPresent\n          env:\n            - name: KAFKA_BOOTSTRAP_SERVERS\n              value: \"kafka-cluster-kafka-bootstrap.kafka.svc:9092\"\n            - name: SCHEMA_REGISTRY_URL\n              value: \"http://nice-kafka-schema-registry.kafka.svc:8081\"\n            - name: JAVA_OPTS\n              value: \"-Xmx1g\"\n          resources:\n            requests: { cpu: 500m, memory: 1Gi }\n            limits:   { cpu: 1000m, memory: 1500Mi }\n",
+        "uc2-kstreams-service.yaml": "apiVersion: v1\nkind: Service\nmetadata:\n  name: titan-ccp-aggregation\n  namespace: two-zone-edge-munich\n  labels:\n    app: titan-ccp-aggregation\nspec:\n  selector:\n    app: titan-ccp-aggregation\n  ports:\n    - name: http\n      port: 80\n      targetPort: 80\n      protocol: TCP\n    - name: metrics\n      port: 5556\n"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "ConfigMap",
+      "metadata": {
+        "name": "measure-uc2-packet-loss-7984c212-load",
+        "namespace": "default"
+      },
+      "data": {
+        "probe-cloud.yaml": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: probe-cloud\n  namespace: two-zone-edge-cloud\n  labels:\n    app: probe\n    ecoscape: \"true\"\nspec:\n  terminationGracePeriodSeconds: 0\n  containers:\n    - name: sleep\n      image: busybox:1.36\n      command: [\"sh\",\"-c\",\"sleep 7200\"]\n      resources:\n        requests: { cpu: 10m, memory: 16Mi }\n        limits:   { cpu: 50m, memory: 32Mi }\n",
+        "uc2-load-generator-deployment.yaml": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: titan-ccp-load-generator\n  namespace: two-zone-edge-cloud\nspec:\n  selector:\n    matchLabels:\n      app: titan-ccp-load-generator    # kein ecoscape-Label: selector ist immutable\n  replicas: 1\n  template:\n    metadata:\n      labels:\n        app: titan-ccp-load-generator\n        ecoscape: \"true\"               # ABWEICHUNG 1\n    spec:\n      terminationGracePeriodSeconds: 0\n      containers:\n        - name: workload-generator\n          image: ghcr.io/cau-se/theodolite-uc2-workload-generator:v0.10.3\n          imagePullPolicy: IfNotPresent\n          ports:\n            - containerPort: 5701\n              name: coordination\n          env:\n            - name: KUBERNETES_NAMESPACE\n              valueFrom:\n                fieldRef:\n                  fieldPath: metadata.namespace\n            - name: KUBERNETES_DNS_NAME\n              value: \"titan-ccp-load-generator.$(KUBERNETES_NAMESPACE).svc.cluster.local\"\n            - name: KAFKA_BOOTSTRAP_SERVERS\n              value: \"kafka-cluster-kafka-bootstrap.kafka.svc:9092\"\n            - name: SCHEMA_REGISTRY_URL\n              value: \"http://nice-kafka-schema-registry.kafka.svc:8081\"\n            - name: NUM_SENSORS\n              value: \"1000\"\n          resources:\n            requests: { cpu: 250m, memory: 512Mi }\n            limits:   { cpu: 1000m, memory: 1Gi }\n",
+        "uc2-load-generator-service.yaml": "apiVersion: v1\nkind: Service\nmetadata:\n  name: titan-ccp-load-generator\n  namespace: two-zone-edge-cloud\n  labels:\n    app: titan-ccp-load-generator\nspec:\n  type: ClusterIP\n  clusterIP: None          # headless: noetig fuer die DNS-Koordination bei replicas > 1\n  selector:\n    app: titan-ccp-load-generator\n  ports:\n    - name: coordination\n      port: 5701\n      targetPort: 5701\n      protocol: TCP\n"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "ConfigMap",
+      "metadata": {
+        "name": "measure-uc2-packet-loss-7984c212-monitor",
+        "namespace": "default"
+      },
+      "data": {}
+    }
+  ]
+}

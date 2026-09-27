@@ -1,0 +1,7 @@
+{
+  "slope_messages_per_second": 0.6751289989680083,
+  "maximum_absolute_slope": 100,
+  "passed": true,
+  "valid_samples": 18,
+  "note": "Operational pilot gate: absolute OLS slope <= max(100, 5% nominal input/s), last 90 baseline seconds. Both rising backlog and ongoing catch-up fail. Nominal input is configured, not measured."
+}

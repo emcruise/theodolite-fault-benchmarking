@@ -1,0 +1,29 @@
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: Experiment
+metadata:
+  name: __EXP__
+  namespace: default
+spec:
+  topologyRef: {name: two-zone-edge}
+  chaosPhaseRef: {name: __CHAOSPHASE__}
+  manifests:
+    sut: {configMapRef: {name: __CM_SUT__}}
+    load: {configMapRef: {name: __CM_LOAD__}}
+    monitor: {configMapRef: {name: __CM_MON__}}
+  duration:
+    topologyDelay: 15
+    loadDelay: 60
+    chaosDelay: 150
+    measurementDuration: 120
+    measurementSampleInterval: 5
+    repetitions: 1
+    pauseBetweenRepetitions: 90
+  prometheus:
+    url: "http://kube1-1:30093"
+    queryTimeoutSeconds: 10
+  slos:
+    - name: input-consumerlag
+      query: 'sum(clamp_min(kafka_consumergroup_lag{consumergroup="__GROUP__",topic="input",job="__SCRAPE_JOB__"},0))'
+      threshold: 50000
+      isBiggerBetter: false
+      weight: 1.0

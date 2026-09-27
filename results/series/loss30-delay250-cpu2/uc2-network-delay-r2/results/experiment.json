@@ -1,0 +1,88 @@
+{
+  "apiVersion": "ecoscape.cau-se.de/v1alpha1",
+  "kind": "Experiment",
+  "metadata": {
+    "creationTimestamp": "2026-09-14T17:38:24Z",
+    "generation": 1,
+    "name": "measure-uc2-network-delay-1e05ba0a-vpn-retry-dce52e",
+    "namespace": "default",
+    "resourceVersion": "45743378",
+    "uid": "cd1b0174-ac6c-4ce0-a3e7-02bc0651f52e"
+  },
+  "spec": {
+    "chaosPhaseRef": {
+      "name": "measure-uc2-network-delay-1e05ba0a-vpn-retry-dce52e-fault"
+    },
+    "duration": {
+      "chaosDelay": 150,
+      "loadDelay": 60,
+      "measurementDuration": 120,
+      "measurementSampleInterval": 5,
+      "pauseBetweenRepetitions": 90,
+      "repetitions": 1,
+      "topologyDelay": 15
+    },
+    "manifests": {
+      "load": {
+        "configMapRef": {
+          "name": "measure-uc2-network-delay-1e05ba0a-vpn-retry-dce52e-load"
+        }
+      },
+      "monitor": {
+        "configMapRef": {
+          "name": "measure-uc2-network-delay-1e05ba0a-vpn-retry-dce52e-monitor"
+        }
+      },
+      "sut": {
+        "configMapRef": {
+          "name": "measure-uc2-network-delay-1e05ba0a-vpn-retry-dce52e-sut"
+        }
+      }
+    },
+    "prometheus": {
+      "queryTimeoutSeconds": 10,
+      "url": "http://kube1-1:30093"
+    },
+    "slos": [
+      {
+        "isBiggerBetter": false,
+        "name": "input-consumerlag",
+        "query": "sum(clamp_min(kafka_consumergroup_lag{consumergroup=\"theodolite-uc2-application-0.0.1\",topic=\"input\",job=\"monitoring/kafka-pod-monitor-series\"},0))",
+        "threshold": 50000,
+        "thresholdDirection": "LessThanOrEqual",
+        "weight": 1
+      }
+    ],
+    "topologyRef": {
+      "name": "two-zone-edge"
+    }
+  },
+  "status": {
+    "aggregateScore": 0,
+    "conditions": [
+      {
+        "lastTransitionTime": "2026-09-14T17:44:11Z",
+        "message": "",
+        "reason": "Succeeded",
+        "status": "True",
+        "type": "Completed"
+      }
+    ],
+    "experimentId": "kmhfk",
+    "phase": "Succeeded",
+    "repetitionsCompleted": 1,
+    "sloResults": [
+      {
+        "evaluations": 3009,
+        "maxSli": 25026,
+        "meanSli": 16217.61515453639,
+        "minSli": 2825,
+        "name": "input-consumerlag",
+        "violationScore": 0
+      }
+    ],
+    "startTime": "2026-09-14T17:38:24Z",
+    "subPhaseStartTime": "2026-09-14T17:44:11Z",
+    "topologyRef": "two-zone-edge"
+  }
+}

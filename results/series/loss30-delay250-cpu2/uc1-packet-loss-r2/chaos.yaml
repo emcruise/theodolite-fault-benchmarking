@@ -1,0 +1,35 @@
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: measure-uc1-packet-loss-f44e66cc-fault
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: Custom
+      manifest: |
+        apiVersion: chaos-mesh.org/v1alpha1
+        kind: NetworkChaos
+        metadata:
+          name: fault-uc1-packet-loss
+          namespace: default          # muss explizit stehen, Ecoscape injiziert nichts
+        spec:
+          action: loss
+          mode: all
+          selector:
+            namespaces:
+              - two-zone-edge-munich
+            labelSelectors:
+              ecoscape: "true"
+          direction: both
+          target:
+            mode: all
+            selector:
+              namespaces:
+                - kafka
+              labelSelectors:
+                strimzi.io/name: kafka-cluster-kafka
+          loss:
+            loss: "30"
+            correlation: "0"

@@ -1,0 +1,52 @@
+# =============================================================================
+# ChaosPhase des Packet-Loss-Szenarios.
+# Bewusst BYTEGLEICH zum Delay-Szenario bis auf den Fault-Block: gleicher
+# Selector, gleiches Target, gleiche Richtung. Damit unterscheidet sich der
+# Vergleich Delay <-> Loss in genau einer Variablen.
+#
+# Faultstaerke 10 %: Startwert. Bei 'direction: both' wird in beiden Richtungen
+# verworfen, ein Roundtrip ueberlebt also nur mit (1-0,1)^2 = 81 %.
+# Eskalation nach dem Probelauf: runter auf 5 %, wenn der Lag davonlaeuft
+# (Steigung deutlich ueber der Delay-Referenz von 8159 msg/s), rauf auf 20 %,
+# wenn der Lag sich nicht vom PreChaos-Fenster abhebt. Nur diesen einen Wert
+# aendern, sonst nichts.
+#
+# correlation "0", nicht "100" wie beim Jitter des Delay-Szenarios: netem wuerde
+# bei hoher Korrelation buendelweise verwerfen (Burst-Verlust). Fuer eine sauber
+# interpretierbare Verlustrate ist unkorrelierter Verlust der richtige Fall.
+# =============================================================================
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: measure-uc1-packet-loss-263b3b6f-fault
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: Custom
+      manifest: |
+        apiVersion: chaos-mesh.org/v1alpha1
+        kind: NetworkChaos
+        metadata:
+          name: fault-uc1-packet-loss
+          namespace: default          # muss explizit stehen, Ecoscape injiziert nichts
+        spec:
+          action: loss
+          mode: all
+          selector:
+            namespaces:
+              - two-zone-edge-munich
+            labelSelectors:
+              ecoscape: "true"
+          direction: both
+          target:
+            mode: all
+            selector:
+              namespaces:
+                - kafka
+              labelSelectors:
+                strimzi.io/name: kafka-cluster-kafka
+          loss:
+            loss: "10"
+            correlation: "0"

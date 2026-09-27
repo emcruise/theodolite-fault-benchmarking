@@ -1,0 +1,770 @@
+[
+  {
+    "uc": 1,
+    "fault": "packet-loss",
+    "task": "uc1-packet-loss-r1",
+    "selected_run": "uniform-1000-20260913/uc1-packet-loss-r1",
+    "original_run": "uniform-1000-20260913/uc1-packet-loss-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "packet-loss",
+    "task": "uc1-packet-loss-r2",
+    "selected_run": "uniform-1000-20260913/uc1-packet-loss-r2",
+    "original_run": "uniform-1000-20260913/uc1-packet-loss-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "packet-loss",
+    "task": "uc1-packet-loss-r3",
+    "selected_run": "uniform-1000-20260913/uc1-packet-loss-r3",
+    "original_run": "uniform-1000-20260913/uc1-packet-loss-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "packet-loss",
+    "task": "uc1-packet-loss-r4",
+    "selected_run": "uniform-1000-20260913/uc1-packet-loss-r4",
+    "original_run": "uniform-1000-20260913/uc1-packet-loss-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "network-delay",
+    "task": "uc1-network-delay-r1",
+    "selected_run": "uniform-1000-20260913/uc1-network-delay-r1",
+    "original_run": "uniform-1000-20260913/uc1-network-delay-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "network-delay",
+    "task": "uc1-network-delay-r2",
+    "selected_run": "uniform-1000-20260913/uc1-network-delay-r2",
+    "original_run": "uniform-1000-20260913/uc1-network-delay-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "network-delay",
+    "task": "uc1-network-delay-r3",
+    "selected_run": "uniform-1000-20260913/uc1-network-delay-r3",
+    "original_run": "uniform-1000-20260913/uc1-network-delay-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "network-delay",
+    "task": "uc1-network-delay-r4",
+    "selected_run": "uniform-1000-20260913/uc1-network-delay-r4",
+    "original_run": "uniform-1000-20260913/uc1-network-delay-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "cpu-stress",
+    "task": "uc1-cpu-stress-r1",
+    "selected_run": "uniform-1000-20260913/uc1-cpu-stress-r1",
+    "original_run": "uniform-1000-20260913/uc1-cpu-stress-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "cpu-stress",
+    "task": "uc1-cpu-stress-r2",
+    "selected_run": "uniform-1000-20260913/uc1-cpu-stress-r2",
+    "original_run": "uniform-1000-20260913/uc1-cpu-stress-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "cpu-stress",
+    "task": "uc1-cpu-stress-r3",
+    "selected_run": "uniform-1000-20260913/uc1-cpu-stress-r3",
+    "original_run": "uniform-1000-20260913/uc1-cpu-stress-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "cpu-stress",
+    "task": "uc1-cpu-stress-r4",
+    "selected_run": "uniform-1000-20260913/uc1-cpu-stress-r4",
+    "original_run": "uniform-1000-20260913/uc1-cpu-stress-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "packet-loss",
+    "task": "uc2-packet-loss-r1",
+    "selected_run": "uniform-1000-20260913/uc2-packet-loss-r1",
+    "original_run": "uniform-1000-20260913/uc2-packet-loss-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "packet-loss",
+    "task": "uc2-packet-loss-r2",
+    "selected_run": "uniform-1000-20260913/uc2-packet-loss-r2",
+    "original_run": "uniform-1000-20260913/uc2-packet-loss-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "packet-loss",
+    "task": "uc2-packet-loss-r3",
+    "selected_run": "uniform-1000-20260913/uc2-packet-loss-r3",
+    "original_run": "uniform-1000-20260913/uc2-packet-loss-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "packet-loss",
+    "task": "uc2-packet-loss-r4",
+    "selected_run": "uniform-1000-20260913/uc2-packet-loss-r4",
+    "original_run": "uniform-1000-20260913/uc2-packet-loss-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "network-delay",
+    "task": "uc2-network-delay-r1",
+    "selected_run": "uniform-1000-20260913/uc2-network-delay-r1",
+    "original_run": "uniform-1000-20260913/uc2-network-delay-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "network-delay",
+    "task": "uc2-network-delay-r2",
+    "selected_run": "uniform-1000-20260913/uc2-network-delay-r2",
+    "original_run": "uniform-1000-20260913/uc2-network-delay-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "network-delay",
+    "task": "uc2-network-delay-r3",
+    "selected_run": "uniform-1000-20260913/uc2-network-delay-r3",
+    "original_run": "uniform-1000-20260913/uc2-network-delay-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "network-delay",
+    "task": "uc2-network-delay-r4",
+    "selected_run": "uniform-1000-20260913/uc2-network-delay-r4",
+    "original_run": "uniform-1000-20260913/uc2-network-delay-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "cpu-stress",
+    "task": "uc2-cpu-stress-r1",
+    "selected_run": "uniform-1000-20260913/uc2-cpu-stress-r1",
+    "original_run": "uniform-1000-20260913/uc2-cpu-stress-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "cpu-stress",
+    "task": "uc2-cpu-stress-r2",
+    "selected_run": "uniform-1000-20260913/uc2-cpu-stress-r2",
+    "original_run": "uniform-1000-20260913/uc2-cpu-stress-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "cpu-stress",
+    "task": "uc2-cpu-stress-r3",
+    "selected_run": "uniform-1000-20260913/uc2-cpu-stress-r3",
+    "original_run": "uniform-1000-20260913/uc2-cpu-stress-r3-vpn-retry1",
+    "cohort": "original"
+  },
+  {
+    "uc": 2,
+    "fault": "cpu-stress",
+    "task": "uc2-cpu-stress-r4",
+    "selected_run": "uniform-1000-20260913/uc2-cpu-stress-r4",
+    "original_run": "uniform-1000-20260913/uc2-cpu-stress-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "packet-loss",
+    "task": "uc3-packet-loss-r1",
+    "selected_run": "recovery-20260912/uc3-packet-loss-r1",
+    "original_run": "recovery-20260912/uc3-packet-loss-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "packet-loss",
+    "task": "uc3-packet-loss-r2",
+    "selected_run": "recovery-20260912/uc3-packet-loss-r2",
+    "original_run": "recovery-20260912/uc3-packet-loss-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "packet-loss",
+    "task": "uc3-packet-loss-r3",
+    "selected_run": "recovery-20260912/uc3-packet-loss-r3",
+    "original_run": "recovery-20260912/uc3-packet-loss-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "packet-loss",
+    "task": "uc3-packet-loss-r4",
+    "selected_run": "recovery-20260912/uc3-packet-loss-r4",
+    "original_run": "recovery-20260912/uc3-packet-loss-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "network-delay",
+    "task": "uc3-network-delay-r1",
+    "selected_run": "recovery-20260912/uc3-network-delay-r1",
+    "original_run": "recovery-20260912/uc3-network-delay-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "network-delay",
+    "task": "uc3-network-delay-r2",
+    "selected_run": "recovery-20260912/uc3-network-delay-r2",
+    "original_run": "recovery-20260912/uc3-network-delay-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "network-delay",
+    "task": "uc3-network-delay-r3",
+    "selected_run": "recovery-20260912/uc3-network-delay-r3",
+    "original_run": "recovery-20260912/uc3-network-delay-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "network-delay",
+    "task": "uc3-network-delay-r4",
+    "selected_run": "recovery-20260912/uc3-network-delay-r4",
+    "original_run": "recovery-20260912/uc3-network-delay-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "cpu-stress",
+    "task": "uc3-cpu-stress-r1",
+    "selected_run": "recovery-20260912/uc3-cpu-stress-r1",
+    "original_run": "recovery-20260912/uc3-cpu-stress-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "cpu-stress",
+    "task": "uc3-cpu-stress-r2",
+    "selected_run": "recovery-20260912/uc3-cpu-stress-r2",
+    "original_run": "recovery-20260912/uc3-cpu-stress-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "cpu-stress",
+    "task": "uc3-cpu-stress-r3",
+    "selected_run": "recovery-20260912/uc3-cpu-stress-r3",
+    "original_run": "recovery-20260912/uc3-cpu-stress-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 3,
+    "fault": "cpu-stress",
+    "task": "uc3-cpu-stress-r4",
+    "selected_run": "recovery-20260912/uc3-cpu-stress-r4",
+    "original_run": "recovery-20260912/uc3-cpu-stress-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "packet-loss",
+    "task": "uc4-packet-loss-r1",
+    "selected_run": "uniform-1000-20260913/uc4-packet-loss-r1",
+    "original_run": "uniform-1000-20260913/uc4-packet-loss-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "packet-loss",
+    "task": "uc4-packet-loss-r2",
+    "selected_run": "uniform-1000-20260913/uc4-packet-loss-r2",
+    "original_run": "uniform-1000-20260913/uc4-packet-loss-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "packet-loss",
+    "task": "uc4-packet-loss-r3",
+    "selected_run": "uniform-1000-20260913/uc4-packet-loss-r3",
+    "original_run": "uniform-1000-20260913/uc4-packet-loss-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "packet-loss",
+    "task": "uc4-packet-loss-r4",
+    "selected_run": "uniform-1000-20260913/uc4-packet-loss-r4",
+    "original_run": "uniform-1000-20260913/uc4-packet-loss-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "network-delay",
+    "task": "uc4-network-delay-r1",
+    "selected_run": "uniform-1000-20260913/uc4-network-delay-r1",
+    "original_run": "uniform-1000-20260913/uc4-network-delay-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "network-delay",
+    "task": "uc4-network-delay-r2",
+    "selected_run": "uniform-1000-20260913/uc4-network-delay-r2",
+    "original_run": "uniform-1000-20260913/uc4-network-delay-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "network-delay",
+    "task": "uc4-network-delay-r3",
+    "selected_run": "uniform-1000-20260913/uc4-network-delay-r3",
+    "original_run": "uniform-1000-20260913/uc4-network-delay-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "network-delay",
+    "task": "uc4-network-delay-r4",
+    "selected_run": "uniform-1000-20260913/uc4-network-delay-r4",
+    "original_run": "uniform-1000-20260913/uc4-network-delay-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "cpu-stress",
+    "task": "uc4-cpu-stress-r1",
+    "selected_run": "uniform-1000-20260913/uc4-cpu-stress-r1",
+    "original_run": "uniform-1000-20260913/uc4-cpu-stress-r1",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "cpu-stress",
+    "task": "uc4-cpu-stress-r2",
+    "selected_run": "uniform-1000-20260913/uc4-cpu-stress-r2",
+    "original_run": "uniform-1000-20260913/uc4-cpu-stress-r2",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "cpu-stress",
+    "task": "uc4-cpu-stress-r3",
+    "selected_run": "uniform-1000-20260913/uc4-cpu-stress-r3",
+    "original_run": "uniform-1000-20260913/uc4-cpu-stress-r3",
+    "cohort": "original"
+  },
+  {
+    "uc": 4,
+    "fault": "cpu-stress",
+    "task": "uc4-cpu-stress-r4",
+    "selected_run": "uniform-1000-20260913/uc4-cpu-stress-r4",
+    "original_run": "uniform-1000-20260913/uc4-cpu-stress-r4",
+    "cohort": "original"
+  },
+  {
+    "uc": 1,
+    "fault": "packet-loss",
+    "task": "uc1-packet-loss-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-packet-loss-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc1-packet-loss-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "packet-loss",
+    "task": "uc1-packet-loss-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-packet-loss-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc1-packet-loss-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "packet-loss",
+    "task": "uc1-packet-loss-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-packet-loss-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc1-packet-loss-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "packet-loss",
+    "task": "uc1-packet-loss-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-packet-loss-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc1-packet-loss-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "network-delay",
+    "task": "uc1-network-delay-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-network-delay-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc1-network-delay-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "network-delay",
+    "task": "uc1-network-delay-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-network-delay-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc1-network-delay-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "network-delay",
+    "task": "uc1-network-delay-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-network-delay-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc1-network-delay-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "network-delay",
+    "task": "uc1-network-delay-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-network-delay-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc1-network-delay-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "cpu-stress",
+    "task": "uc1-cpu-stress-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-cpu-stress-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc1-cpu-stress-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "cpu-stress",
+    "task": "uc1-cpu-stress-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-cpu-stress-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc1-cpu-stress-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "cpu-stress",
+    "task": "uc1-cpu-stress-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-cpu-stress-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc1-cpu-stress-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 1,
+    "fault": "cpu-stress",
+    "task": "uc1-cpu-stress-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc1-cpu-stress-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc1-cpu-stress-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "packet-loss",
+    "task": "uc2-packet-loss-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-packet-loss-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc2-packet-loss-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "packet-loss",
+    "task": "uc2-packet-loss-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-packet-loss-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc2-packet-loss-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "packet-loss",
+    "task": "uc2-packet-loss-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-packet-loss-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc2-packet-loss-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "packet-loss",
+    "task": "uc2-packet-loss-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-packet-loss-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc2-packet-loss-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "network-delay",
+    "task": "uc2-network-delay-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-network-delay-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc2-network-delay-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "network-delay",
+    "task": "uc2-network-delay-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-network-delay-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc2-network-delay-r2-vpn-retry1",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "network-delay",
+    "task": "uc2-network-delay-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-network-delay-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc2-network-delay-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "network-delay",
+    "task": "uc2-network-delay-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-network-delay-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc2-network-delay-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "cpu-stress",
+    "task": "uc2-cpu-stress-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-cpu-stress-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc2-cpu-stress-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "cpu-stress",
+    "task": "uc2-cpu-stress-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-cpu-stress-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc2-cpu-stress-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "cpu-stress",
+    "task": "uc2-cpu-stress-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-cpu-stress-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc2-cpu-stress-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 2,
+    "fault": "cpu-stress",
+    "task": "uc2-cpu-stress-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc2-cpu-stress-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc2-cpu-stress-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "packet-loss",
+    "task": "uc3-packet-loss-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-packet-loss-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc3-packet-loss-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "packet-loss",
+    "task": "uc3-packet-loss-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-packet-loss-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc3-packet-loss-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "packet-loss",
+    "task": "uc3-packet-loss-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-packet-loss-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc3-packet-loss-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "packet-loss",
+    "task": "uc3-packet-loss-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-packet-loss-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc3-packet-loss-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "network-delay",
+    "task": "uc3-network-delay-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-network-delay-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc3-network-delay-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "network-delay",
+    "task": "uc3-network-delay-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-network-delay-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc3-network-delay-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "network-delay",
+    "task": "uc3-network-delay-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-network-delay-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc3-network-delay-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "network-delay",
+    "task": "uc3-network-delay-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-network-delay-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc3-network-delay-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "cpu-stress",
+    "task": "uc3-cpu-stress-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-cpu-stress-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc3-cpu-stress-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "cpu-stress",
+    "task": "uc3-cpu-stress-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-cpu-stress-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc3-cpu-stress-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "cpu-stress",
+    "task": "uc3-cpu-stress-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-cpu-stress-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc3-cpu-stress-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 3,
+    "fault": "cpu-stress",
+    "task": "uc3-cpu-stress-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc3-cpu-stress-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc3-cpu-stress-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "packet-loss",
+    "task": "uc4-packet-loss-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-packet-loss-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc4-packet-loss-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "packet-loss",
+    "task": "uc4-packet-loss-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-packet-loss-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc4-packet-loss-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "packet-loss",
+    "task": "uc4-packet-loss-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-packet-loss-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc4-packet-loss-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "packet-loss",
+    "task": "uc4-packet-loss-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-packet-loss-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc4-packet-loss-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "network-delay",
+    "task": "uc4-network-delay-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-network-delay-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc4-network-delay-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "network-delay",
+    "task": "uc4-network-delay-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-network-delay-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc4-network-delay-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "network-delay",
+    "task": "uc4-network-delay-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-network-delay-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc4-network-delay-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "network-delay",
+    "task": "uc4-network-delay-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-network-delay-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc4-network-delay-r4",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "cpu-stress",
+    "task": "uc4-cpu-stress-r1",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-cpu-stress-r1",
+    "original_run": "series/loss30-delay250-cpu2/uc4-cpu-stress-r1",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "cpu-stress",
+    "task": "uc4-cpu-stress-r2",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-cpu-stress-r2",
+    "original_run": "series/loss30-delay250-cpu2/uc4-cpu-stress-r2",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "cpu-stress",
+    "task": "uc4-cpu-stress-r3",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-cpu-stress-r3",
+    "original_run": "series/loss30-delay250-cpu2/uc4-cpu-stress-r3",
+    "cohort": "server"
+  },
+  {
+    "uc": 4,
+    "fault": "cpu-stress",
+    "task": "uc4-cpu-stress-r4",
+    "selected_run": "series/loss30-delay250-cpu2/uc4-cpu-stress-r4",
+    "original_run": "series/loss30-delay250-cpu2/uc4-cpu-stress-r4",
+    "cohort": "server"
+  }
+]

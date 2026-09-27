@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: titan-ccp-aggregation
+  namespace: two-zone-edge-munich      # ABWEICHUNG 1
+spec:
+  selector:
+    matchLabels:
+      app: titan-ccp-aggregation       # KEIN ecoscape-Label hier: selector ist immutable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: titan-ccp-aggregation
+        ecoscape: "true"               # ABWEICHUNG 1: Zonenzugehoerigkeit (Latenz + Chaos)
+    spec:
+      terminationGracePeriodSeconds: 0
+      containers:
+        - name: uc-application
+          image: ghcr.io/cau-se/theodolite-uc2-kstreams-app:v0.10.3
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: "kafka-cluster-kafka-bootstrap.kafka.svc:9092"
+            - name: SCHEMA_REGISTRY_URL
+              value: "http://nice-kafka-schema-registry.kafka.svc:8081"
+            - name: JAVA_OPTS
+              value: "-Xmx1g"
+          resources:
+            requests: { cpu: 500m, memory: 1Gi }
+            limits:   { cpu: 1000m, memory: 1500Mi }

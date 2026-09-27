@@ -1,0 +1,14 @@
+runs/
+series/
+__pycache__/
+*.py[cod]
+*.log
+*.lock
+*.pid
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+*kubeconfig*
+*vpn-config*

@@ -1,0 +1,41 @@
+# =============================================================================
+# ChaosPhase uc2-packet-loss.
+# Bewusst byte-gleich zum Delay-Szenario bis auf den Fault-Block: gleicher Selector,
+# gleiches Target, gleiche Richtung. Damit haengt der Vergleich Delay <-> Loss an genau
+# einer Variablen. correlation "0": unkorrelierter Verlust, kein Burst-Verlust.
+# =============================================================================
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: measure-uc2-packet-loss-9d55cc32-fault
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: Custom
+      manifest: |
+        apiVersion: chaos-mesh.org/v1alpha1
+        kind: NetworkChaos
+        metadata:
+          name: fault-uc2-packet-loss
+          namespace: default          # muss explizit stehen, Ecoscape injiziert nichts
+        spec:
+          action: loss
+          mode: all
+          selector:
+            namespaces:
+              - two-zone-edge-munich
+            labelSelectors:
+              ecoscape: "true"
+          direction: both
+          target:
+            mode: all
+            selector:
+              namespaces:
+                - kafka
+              labelSelectors:
+                strimzi.io/name: kafka-cluster-kafka
+          loss:
+            loss: "10"
+            correlation: "0"

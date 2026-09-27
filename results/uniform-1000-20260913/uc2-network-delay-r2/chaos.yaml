@@ -1,0 +1,42 @@
+# =============================================================================
+# ChaosPhase uc2-network-delay.
+# Faultstufe identisch zu uc1-network-delay: 500 ms +- 100 ms, direction both,
+# Selector = alle ecoscape-Pods in munich, Target = die drei Strimzi-Broker.
+# Nur die Objektnamen tragen den Use Case, damit die ChaosPhasen nebeneinander stehen.
+# =============================================================================
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: measure-uc2-network-delay-6b7cb670-fault
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: Custom
+      manifest: |
+        apiVersion: chaos-mesh.org/v1alpha1
+        kind: NetworkChaos
+        metadata:
+          name: fault-uc2-network-delay
+          namespace: default          # muss explizit stehen, Ecoscape injiziert nichts
+        spec:
+          action: delay
+          mode: all
+          selector:
+            namespaces:
+              - two-zone-edge-munich
+            labelSelectors:
+              ecoscape: "true"
+          direction: both
+          target:
+            mode: all
+            selector:
+              namespaces:
+                - kafka
+              labelSelectors:
+                strimzi.io/name: kafka-cluster-kafka
+          delay:
+            latency: "500ms"
+            jitter: "100ms"
+            correlation: "100"

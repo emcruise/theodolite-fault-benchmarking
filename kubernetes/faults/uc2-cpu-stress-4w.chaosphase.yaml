@@ -1,0 +1,14 @@
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: esp-uc2-cpu-stress-4w
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: CPUStress
+      zones:
+        - munich
+      workers: 4
+      load: 100

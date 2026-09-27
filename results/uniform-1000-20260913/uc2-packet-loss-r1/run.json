@@ -1,0 +1,14 @@
+{
+  "name": "measure-uc2-packet-loss-9c6a5419",
+  "uc": 2,
+  "fault": "packet-loss",
+  "source": "/Users/emil/Workspace/ecoscape-files/simple-measurements/uniform-1000-20260913/source",
+  "scrape_job": "monitoring/kafka-pod-monitor-series",
+  "queries": {
+    "input_lag": "sum(clamp_min(kafka_consumergroup_lag{consumergroup=\"theodolite-uc2-application-0.0.1\",job=\"monitoring/kafka-pod-monitor-series\",topic=\"input\"},0))",
+    "negative_partitions": "sum(kafka_consumergroup_lag{consumergroup=\"theodolite-uc2-application-0.0.1\",job=\"monitoring/kafka-pod-monitor-series\",topic=\"input\"} < bool 0)",
+    "scrape_up": "up{job=\"monitoring/kafka-pod-monitor-series\"}",
+    "scrape_seconds": "scrape_duration_seconds{job=\"monitoring/kafka-pod-monitor-series\"}",
+    "source_age_seconds": "time() - min(timestamp(kafka_consumergroup_lag{consumergroup=\"theodolite-uc2-application-0.0.1\",job=\"monitoring/kafka-pod-monitor-series\",topic=\"input\"}))"
+  }
+}

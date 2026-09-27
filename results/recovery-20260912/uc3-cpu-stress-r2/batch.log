@@ -1,0 +1,91 @@
+Waiting for Kafka scrape readiness (up to 60s)...
+Kafka scrape ready (two successful checks).
+Running measure-uc3-cpu-stress-7164f6e9; results: /Users/emil/Workspace/ecoscape-files/simple-measurements/recovery-20260912/uc3-cpu-stress-r2/results
+Cancellation/timeout leaves the experiment running. Stop with: kubectl -n default delete experiment measure-uc3-cpu-stress-7164f6e9
+Running Deploying
+Running TopologyDelay
+Running LoadDelay
+Running PreChaosMeasurement
+Running ChaosMeasurement
+Succeeded 
+Exported 54 scheduled evaluations to /Users/emil/Workspace/ecoscape-files/simple-measurements/recovery-20260912/uc3-cpu-stress-r2/results/samples-prometheus.csv
+{
+  "passed_basic_checks": false,
+  "problems": [
+    "Fewer than three settled samples in a measurement phase"
+  ],
+  "settled_samples": {
+    "PreChaosMeasurement": 18,
+    "ChaosMeasurement": 2
+  },
+  "fault_injected": true,
+  "note": "Injection status does not establish physical fault magnitude. No end-to-end latency is measured.",
+  "policy": "lag-coverage-v2-phase-check-v3",
+  "sample_source": "samples-prometheus.csv",
+  "warnings": [
+    "ChaosMeasurement: health observation at +109.4s overlaps phase end; not used for readiness/injection verdict"
+  ],
+  "coverage": {
+    "PreChaosMeasurement": {
+      "expected_bins": 18,
+      "valid_bins": 18,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    },
+    "ChaosMeasurement": {
+      "expected_bins": 12,
+      "valid_bins": 12,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    }
+  },
+  "policy_details": "Per phase after 60s: >=90% five-second bins valid, at most one consecutive missing bin, no gap >15s. No interpolation. Health and injection checks unchanged."
+}
+{
+  "passed_basic_checks": false,
+  "problems": [
+    "Fewer than three settled samples in a measurement phase"
+  ],
+  "settled_samples": {
+    "PreChaosMeasurement": 18,
+    "ChaosMeasurement": 2
+  },
+  "fault_injected": true,
+  "note": "Injection status does not establish physical fault magnitude. No end-to-end latency is measured.",
+  "policy": "lag-coverage-v2-phase-check-v3",
+  "sample_source": "samples-prometheus.csv",
+  "warnings": [
+    "ChaosMeasurement: health observation at +109.4s overlaps phase end; not used for readiness/injection verdict"
+  ],
+  "coverage": {
+    "PreChaosMeasurement": {
+      "expected_bins": 18,
+      "valid_bins": 18,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    },
+    "ChaosMeasurement": {
+      "expected_bins": 12,
+      "valid_bins": 12,
+      "missing_bins": 0,
+      "longest_missing_bins": 0,
+      "max_gap_seconds": 5.0
+    }
+  },
+  "policy_details": "Per phase after 60s: >=90% five-second bins valid, at most one consecutive missing bin, no gap >15s. No interpolation. Health and injection checks unchanged."
+}
+After reviewing results, teardown: kubectl -n default delete experiment measure-uc3-cpu-stress-7164f6e9
+Cleanup: measure-uc3-cpu-stress-7164f6e9, its manifest ConfigMaps/ChaosPhase, and UC3 internal topics/consumer group
+Also remove orphan input/output/configuration/feedback topics declared in this run, after ownership and consumer checks.
+Deleting inactive consumer group theodolite-uc3-application-0.0.1
+Deleting orphan from recorded run: input
+Cleanup verified: consumer group absent in three consecutive checks.
+Cleanup: measure-uc3-cpu-stress-7164f6e9, its manifest ConfigMaps/ChaosPhase, and UC3 internal topics/consumer group
+Also remove orphan input/output/configuration/feedback topics declared in this run, after ownership and consumer checks.
+Cleanup verified: consumer group absent in three consecutive checks.
+Cleanup: measure-uc3-cpu-stress-7164f6e9, its manifest ConfigMaps/ChaosPhase, and UC3 internal topics/consumer group
+Also remove orphan input/output/configuration/feedback topics declared in this run, after ownership and consumer checks.
+Cleanup verified: consumer group absent in three consecutive checks.

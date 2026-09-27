@@ -1,0 +1,14 @@
+apiVersion: ecoscape.cau-se.de/v1alpha1
+kind: ChaosPhase
+metadata:
+  name: measure-uc1-cpu-stress-8e5ad900-fault
+  namespace: default
+spec:
+  topologyRef:
+    name: two-zone-edge
+  faults:
+    - type: CPUStress
+      zones:
+        - munich
+      workers: 2
+      load: 100
